@@ -55,12 +55,13 @@ const BritneyAI = () => {
     const matched: Array<string> = [];
 
     responses.filter((response) => {
-      const words = removePunctuation(response).toLowerCase().split(' ');
+      const lyrics = removePunctuation(response).toLowerCase();
+      const lyric = removePunctuation(input).toLowerCase();
+      const index = lyrics.indexOf(lyric);
 
-      for (let i = 0; i < words.length; i++) {
-        if (words[i] === removePunctuation(input).toLowerCase()) {
-          matched.push(response);
-        }
+      if (index > -1) {
+        console.log('🪼', lyrics);
+        matched.push(lyrics.slice(index));
       }
     });
 
