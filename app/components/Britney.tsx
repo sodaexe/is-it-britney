@@ -1,5 +1,6 @@
 'use client';
 import {ChangeEvent, FormEvent, useState} from 'react';
+import lyrics from '@/lib/db/lyrics.json';
 
 type Message = {
   isUser: boolean;
@@ -20,35 +21,7 @@ const BritneyAI = () => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
 
-  // Réponses génériques style pop
-  const responses = [
-    "All you people look at me like I'm a little girl",
-    'All my people on the floor',
-    'Let me see you dance (let me see ya)',
-    'Oh, baby, baby',
-    "Baby, I'm so into you",
-    'Baby, you spin me around',
-    'You drive me crazy',
-    "I just can't sleep",
-    'All my people in the crowd, grab a partner take it down',
-    'Let me see you dance (let me see ya)',
-    'This is a story about a girl named Lucky',
-    "She's so lucky, she's a star",
-    'Oops, I did it again',
-    'I played with your heart, got lost in the game',
-    'All eyes on me in the center of the ring just like a circus',
-    'I feel the adrenaline moving through my veins',
-    'Stronger than yesterday',
-    'Now get to work, bitch! (ah-ah)',
-    'You better work, bitch',
-    'Say hello to the girl that I am',
-    "You're gonna have to see through my perspective",
-    'But my life has been so overprotected',
-    "Baby, can't you see I'm calling?",
-    'A guy like you should wear a warning',
-    'And every time I try to fly I fall without my wings',
-    'I guess I need you baby',
-  ];
+  const responses = lyrics.lyrics;
 
   const getResponse = (input: string) => {
     let result = "Ce n'est pas très Britney 👀";
