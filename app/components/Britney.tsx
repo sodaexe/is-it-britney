@@ -33,7 +33,7 @@ const BritneyAI = () => {
       const index = lyrics.indexOf(lyric);
 
       if (index > -1) {
-        // console.log('🪼', lyrics);
+        console.log('🪼', lyrics);
         matched.push(lyrics.slice(index + lyric.length));
       }
     });
