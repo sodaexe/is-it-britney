@@ -7,14 +7,14 @@ type Message = {
   text: string;
 };
 
-const removePunctuation = (text: string): string => {
-  const punctuationRegex = /[.,\/#!$%\^&\*;:{}=\-_`~()\[\]<>"""''']/g;
+// const removePunctuation = (text: string): string => {
+//   const punctuationRegex = /[.,\/#!$%\^&\*;:{}=\-_`~()\[\]<>"""''']/g;
 
-  if (!text || typeof text !== 'string') {
-    return '';
-  }
-  return text.replace(punctuationRegex, '');
-};
+//   if (!text || typeof text !== 'string') {
+//     return '';
+//   }
+//   return text.replace(punctuationRegex, '');
+// };
 
 const BritneyAI = () => {
   const [counter, setCounter] = useState(0);
@@ -28,8 +28,8 @@ const BritneyAI = () => {
     const matched: Array<string> = [];
 
     responses.filter((response) => {
-      const lyrics = removePunctuation(response).toLowerCase();
-      const lyric = removePunctuation(input).toLowerCase();
+      const lyrics = response.toLowerCase();
+      const lyric = input.toLowerCase();
       const index = lyrics.indexOf(lyric);
 
       if (index > -1) {
@@ -51,10 +51,8 @@ const BritneyAI = () => {
 
     if (!input.trim()) return;
 
-    // const userMessage = {text: input.trim(), isUser: true};
     const aiResponse = {text: getResponse(input), isUser: false};
 
-    // setMessages((prevMessages) => [...prevMessages, userMessage, aiResponse]);
     setMessages([aiResponse]);
     setCounter((prev) => prev + 1);
   };
